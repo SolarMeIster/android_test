@@ -46,7 +46,7 @@ class ReviewModel(
 class VideoModel(
     val id: String,
     val image: String
-) : BaseApp
+)
 
 class ActionModel(
     val name: String,
