@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/mainColor"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="12dp"
         app:layout_constraintStart_toEndOf="@id/logo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,19 +40,18 @@
         app:layout_constraintStart_toEndOf="@id/ratingBar"
         app:layout_constraintTop_toBottomOf="@+id/mainHeader"
         app:layout_constraintVertical_bias="0.68"
-        tools:text="70M Reviews" />
+        tools:text="70M" />
 
     <RatingBar
         android:id="@+id/ratingBar"
         style="@style/Widget.AppCompat.RatingBar.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintStart_toEndOf="@id/logo"
         android:layout_marginBottom="8dp"
         android:progressTint="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/logo"
         app:layout_constraintTop_toBottomOf="@id/mainHeader"
         />
 

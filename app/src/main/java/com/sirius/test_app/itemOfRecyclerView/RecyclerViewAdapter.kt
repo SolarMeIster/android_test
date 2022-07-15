@@ -8,13 +8,14 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.sirius.test_app.R
 import com.sirius.test_app.ReviewModel
 import java.lang.Exception
 import java.lang.IllegalArgumentException
 
-class RecyclerViewAdapter(private val data: List<BaseApp>, private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecyclerViewAdapter(private val data: List<Any>, private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when(viewType) {
             TYPE_MAIN_HEADER -> {
@@ -52,6 +53,11 @@ class RecyclerViewAdapter(private val data: List<BaseApp>, private val context: 
                     .inflate(R.layout.button_install_layout, parent, false)
                 InstallViewHolder(view, context)
             }
+            TYPE_VIDEOS -> {
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.video_layout, parent, false)
+                VideosViewHolder(view, context)
+            }
             else -> throw IllegalArgumentException("Invalid: $viewType")
         }
     }
@@ -66,6 +72,7 @@ class RecyclerViewAdapter(private val data: List<BaseApp>, private val context: 
             is RatingViewHolder -> holder.bind(element as Rating)
             is GenreViewHolder -> holder.bind(element as Genre)
             is InstallViewHolder -> holder.bind(element as Install)
+            is VideosViewHolder -> holder.bind(element as Videos)
         }
     }
 
@@ -80,6 +87,7 @@ class RecyclerViewAdapter(private val data: List<BaseApp>, private val context: 
             is Rating -> TYPE_RATING
             is Genre -> TYPE_GENRE
             is Install -> TYPE_INSTALL
+            is Videos -> TYPE_VIDEOS
             else -> throw IllegalArgumentException("Invalid view class: ${data[position].javaClass}")
         }
     }
@@ -133,7 +141,8 @@ class RecyclerViewAdapter(private val data: List<BaseApp>, private val context: 
         private val logo = view.findViewById<ImageView>(R.id.logo)
         fun bind(item: MainHeader) {
             Glide.with(context)
-                .load(item.logo)
+                .load(R.drawable.img_logo)
+                .transform(CenterCrop())
                 .into(logo)
             mainHeader.text = item.mainHeader
             ratingBar.rating = item.rating
@@ -175,6 +184,23 @@ class RecyclerViewAdapter(private val data: List<BaseApp>, private val context: 
         }
     }
 
+    class VideosViewHolder(view: View, private val context: Context) : RecyclerView.ViewHolder(view) {
+        private val videoOfGame1 = view.findViewById<ImageView>(R.id.videoOfGame1)
+        private val videoOfGame2 = view.findViewById<ImageView>(R.id.videoOfGame2)
+        fun bind(item: Videos) {
+            if (item.videos[0].id == "video_1") {
+                Glide.with(context)
+                    .load(item.videos[0].image)
+                    .into(videoOfGame1)
+            }
+            if (item.videos[1].id == "video_2") {
+                Glide.with(context)
+                    .load(item.videos[1].image)
+                    .into(videoOfGame2)
+            }
+        }
+    }
+
     companion object {
         private const val TYPE_MAIN_HEADER = 0
         private const val TYPE_DESCRIPTION = 1
@@ -183,5 +209,6 @@ class RecyclerViewAdapter(private val data: List<BaseApp>, private val context: 
         private const val TYPE_RATING = 4
         private const val TYPE_GENRE = 5
         private const val TYPE_INSTALL = 6
+        private const val TYPE_VIDEOS = 7
     }
 }

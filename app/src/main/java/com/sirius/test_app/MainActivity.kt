@@ -1,7 +1,5 @@
 package com.sirius.test_app
 
-import android.content.res.Configuration
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -59,6 +57,7 @@ class MainActivity : AppCompatActivity() {
             MainHeader(DataModel().name, DataModel().rating, DataModel().gradeCnt, DataModel().logo),
             Genre(DataModel().tags),
             Description(DataModel().description),
+            Videos(DataModel().videos),
             Header("Review & Ratings"),
             Rating(DataModel().rating, DataModel().gradeCnt),
             DataModel().reviews[0],
