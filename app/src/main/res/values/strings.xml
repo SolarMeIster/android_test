@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Sirius</string>
+    <string name="Reviews">%1$s Reviews</string>
+    <string name="Error">error</string>
 </resources>

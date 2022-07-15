@@ -24,7 +24,6 @@
             <ImageView
                 android:id="@+id/imageViewOfApp"
                 android:layout_width="match_parent"
-                android:contentDescription="@string/Error"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"/>
 
@@ -32,7 +31,6 @@
                 android:id="@+id/buttonBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/Error"
                 app:borderWidth="0dp"
                 android:layout_marginTop="56dp"
                 android:layout_marginStart="24dp"
@@ -45,7 +43,6 @@
                 android:id="@+id/buttonSettings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/Error"
                 app:borderWidth="0dp"
                 android:layout_marginTop="56dp"
                 android:layout_gravity="end"

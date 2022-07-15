@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="mainColor">#B3EEF2FB</color>
+    <color name="background">#050B18</color>
+    <color name="yellow">#F4D144</color>
+    <color name="genreTextColor">#41A0E7</color>
+    <color name="genreButtonColor">#3D44A9F4</color>
+    <color name="buttonInstallColor">#F4D144</color>
+    <color name="Install">#050B18</color>
+    <color name="FloatingActionButton">#78FFFFFF</color>
 </resources>
